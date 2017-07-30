@@ -21,6 +21,6 @@ def add(parts):
     with db.connect('db.sqlite3') as connect:
         cursor = connect.cursor()
         cursor.executemany("""INSERT INTO parts(part_type, mark, model, frame, engine, year, price, company, photo) 
-                   VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                           VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)""",
                            parts)
         connect.commit()
