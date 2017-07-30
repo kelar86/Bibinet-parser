@@ -4,8 +4,6 @@ from src import my_parser
 
 BASE_URL = 'https://bibinet.ru/part/all'
 PAGE_PART = 'page='
-DELIMITER = '/'
-
 MAX_PAGES = 3
 
 
@@ -19,13 +17,13 @@ def route(mark, model, max_pages=MAX_PAGES):
 
 
 def __url_constructor(mark, model, pages):
-    return list(map(lambda url: BASE_URL + DELIMITER + mark + DELIMITER + model + url, pages))
+    return list(map(lambda url: BASE_URL + '/' + mark + '/' + model + url, pages))
 
 
 def __paginator(max_pages):
     list_page_suffix = ['']
     for i in range(1, max_pages):
-        list_page_suffix.append(DELIMITER + PAGE_PART + str(i))
+        list_page_suffix.append('/' + PAGE_PART + str(i))
     return list_page_suffix
 
 
