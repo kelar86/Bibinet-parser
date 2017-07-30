@@ -2,7 +2,7 @@ import sqlite3 as db
 
 
 def create_base():
-    with db.connect('db_test.db') as connection:
+    with db.connect('db.sqlite3') as connection:
         cursor = connection.cursor()
         cursor.executescript("""CREATE TABLE IF NOT EXISTS parts (
                               id serial PRIMARY KEY,
@@ -18,7 +18,7 @@ def create_base():
 
 
 def add(parts):
-    with db.connect('db_test.db') as connect:
+    with db.connect('db.sqlite3') as connect:
         cursor = connect.cursor()
         cursor.executemany("""INSERT INTO parts(part_type, mark, model, frame, engine, year, price, company, photo) 
                    VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)""",
