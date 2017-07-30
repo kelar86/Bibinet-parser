@@ -1,6 +1,5 @@
 import requests
 import my_parser
-import urllib.request
 
 BASE_URL = 'https://bibinet.ru/part/all'
 PAGE_PART = 'page='
@@ -39,7 +38,7 @@ def __check_urls_is_ok(url_list):
 
 
 def __get_html_pages(url_list):
-    return [urllib.request.urlopen(url).read().decode('utf-8') for url in url_list if my_parser.have_results(url)]
+    return [requests.get(url).text for url in url_list if my_parser.have_results(url)]
 
 
 def get_start_page(url):
