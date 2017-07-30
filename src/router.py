@@ -1,5 +1,6 @@
 import requests
-import my_parser
+
+from src import my_parser
 
 BASE_URL = 'https://bibinet.ru/part/all'
 PAGE_PART = 'page='

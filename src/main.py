@@ -1,6 +1,7 @@
-import repository
-import router
-import my_parser
+import src.my_parser as my_parser
+import src.repository as repository
+
+from src import router
 
 MAX_MODELS = 3
 
