@@ -1,7 +1,9 @@
-import src.my_parser as my_parser
-import src.repository as repository
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import my_parser as my_parser
+import repository as repository
 
-from src import router
+import router
 
 MAX_MODELS = 3
 

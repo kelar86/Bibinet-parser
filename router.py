@@ -1,6 +1,6 @@
+# -*- coding: utf-8 -*-
 import requests
-
-from src import my_parser
+import my_parser
 
 BASE_URL = 'https://bibinet.ru/part/all'
 PAGE_PART = 'page='
