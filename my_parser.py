@@ -8,7 +8,7 @@ from lxml import html, etree
 
 def __save_photo(url):
     if not os.path.exists('./img'):
-        os.mkdir('./img', mode=0o777)
+        os.mkdir('./img')
 
     file_name = "img/" + str(uuid.uuid4()) + '.jpg'
 
@@ -43,7 +43,8 @@ def __get_photo(page):
     tree = html.fromstring(page)
     img_urls = tree.xpath("//*[@class='photo']/a")
     img_urls = [etree.tostring(url, encoding='unicode') for url in img_urls]
-    img_urls = [re.search(r'https:.*jpg', item).group(0) for item in img_urls]
+    img_urls = [re.search(r'https:.*jpg', item) for item in img_urls]
+    img_urls = [item.group(0) for item in img_urls if item != None]
     return [__save_photo(url) for url in img_urls]
 
 

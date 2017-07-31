@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import sys
 import my_parser as my_parser
 import repository as repository
 
@@ -24,4 +25,7 @@ def main(mark='honda'):
 
 
 if __name__ == '__main__':
-    main()
+    if len(sys.argv) == 2:
+        main(sys.argv[1])
+    else:
+        main()
